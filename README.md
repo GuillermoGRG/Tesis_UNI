@@ -4,20 +4,20 @@ Template para la tesis de licenciatura estilo IEEE.
 Para compilar el archivo main.tex usar LuaLaTeX de la siguiente manera:
 
 --------------------------------------------------------------------
-### Compile document with LuaLaTeX
+### Compilar una vez usando LuaLaTeX
 lualatex main.tex
 
-## Run BibTeX for references (if using \bibliography{})
+### Usar BibTeX para las referencias
 biber main
 
-## Recompile with LuaLaTeX (2x to resolve cross-references)
+### Recompilar de nuevo dos veces usando LuaLaTeX (por las referencias)
 lualatex main.tex
 lualatex main.tex
 
-## Clean auxiliary files
+### eliminar archivos auxiliares
 rm -f *.aux *.log *.out *.toc *.bbl *.blg
 
-## Show pdf
+### muestra el pdf
 evince main.pdf
 --------------------------------------------------------------------
 
