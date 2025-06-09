@@ -1,10 +1,10 @@
 # Tesis_UNI
 Template para la tesis de licenciatura estilo IEEE.
 
-Para compilar el archivo main.tex usar LuaLaTeX:
+Para compilar el archivo main.tex usar LuaLaTeX de la siguiente manera:
 
 --------------------------------------------------------------------
-## Compile document with LuaLaTeX
+### Compile document with LuaLaTeX
 lualatex main.tex
 
 ## Run BibTeX for references (if using \bibliography{})
