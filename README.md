@@ -5,20 +5,20 @@ Para compilar el archivo main.tex usar LuaLaTeX de la siguiente manera:
 
 --------------------------------------------------------------------
 ### Compilar una vez usando LuaLaTeX
-lualatex main.tex
+### lualatex main.tex
 
 ### Usar BibTeX para las referencias
-biber main
+### biber main
 
 ### Recompilar de nuevo dos veces usando LuaLaTeX (por las referencias)
-lualatex main.tex
-lualatex main.tex
+### lualatex main.tex
+### lualatex main.tex
 
 ### eliminar archivos auxiliares
-rm -f *.aux *.log *.out *.toc *.bbl *.blg
+### rm -f *.aux *.log *.out *.toc *.bbl *.blg
 
 ### muestra el pdf
-evince main.pdf
+### evince main.pdf
 --------------------------------------------------------------------
 
 Es recomendable crear un archivo run.sh y hacer ./run.sh en el terminal si se está usando Linux.
