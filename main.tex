@@ -1,0 +1,393 @@
+\documentclass[11pt,spanish]{report}
+
+% Margins (optional tweak)
+\usepackage[a4paper,left=1.18in,right=1in,top=1in,bottom=1in]{geometry}
+
+\usepackage{dsfont}
+
+% IEEE style bibliography
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{refs.bib}
+
+
+% Language and font
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{url}
+% \usepackage{cite}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[dvipsnames]{xcolor} 
+
+
+\usepackage{hyperref}
+\hypersetup{
+        colorlinks=true,            
+        linkcolor=Blue,               
+        citecolor=blue,                          
+        urlcolor=blue,
+        bookmarksdepth=4
+}
+
+\usepackage{slashed}
+\usepackage{titlesec}
+\usepackage{tocloft}  % Para personalizar las listas de tablas                % ---------- May, 10th
+\usepackage{paracol}  % Más flexible que parcolumns
+
+% Double spacing
+\usepackage{setspace}
+\doublespacing
+
+% Page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Clear default header/footer
+\fancyfoot[R]{\thepage} % Page number bottom-right
+\renewcommand{\headrulewidth}{0pt} % No header line
+\renewcommand{\footrulewidth}{0pt} % No footer line
+
+% Page numbering for frontmatter and mainmatter
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{mychapterstyle}}{}{}
+\makeatother
+
+% Custom page style for chapters (roman numbering, non-plain)
+\fancypagestyle{mychapterstyle}{
+  \fancyhf{}
+  \fancyfoot[R]{\thepage}
+}
+
+% Custom page style for plain pages (arabic numbering)
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[R]{\thepage}
+}
+
+% Roman numbering for frontmatter, Arabic for mainmatter
+\newcommand{\frontmatter}{
+  \pagenumbering{roman}
+  \renewcommand{\thepage}{\roman{page}}
+}
+\newcommand{\mainmatter}{
+  \cleardoublepage
+  \pagenumbering{arabic}
+}
+
+
+% ORCID
+\newcommand{\orcid}[1]{\href{https://orcid.org/#1}{\includegraphics[width=8pt]{orcid.pdf}}}
+
+
+\usepackage{caption}
+\captionsetup[table]{name=Tabla} % Cambia "Cuadro" → "Tabla" en el cuerpo del documento, no en la Lista de Tablas
+
+
+% Capítulos en 14 pt
+\titleformat{\chapter}
+  {\normalfont\fontsize{14pt}{16pt}\bfseries}
+  {\thechapter}{1em}{}
+
+% Secciones (subcapítulos) en 11 pt
+\titleformat{\section}
+  {\normalfont\fontsize{11pt}{13pt}\bfseries}
+  {\thesection}{1em}{}
+
+% Sangria 0.5 pulgadas
+\setlength{\parindent}{0.5in}
+
+
+\addto\captionsspanish{\renewcommand{\contentsname}{\hspace{2in} \Large Tabla de Contenido}}
+
+
+\renewcommand{\thesection}{\Alph{section}.} % Muestra A, B, C (sin "II.")
+\renewcommand{\thesubsection}{\arabic{subsection}} % 1, 2, 3...
+
+
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\cftfigpresnum}{Figura~}
+\renewcommand{\cftfigaftersnum}{:}
+\counterwithout{figure}{chapter}
+\setlength{\cftfignumwidth}{5em}
+% Formato en el caption de las figuras
+\captionsetup[figure]{labelformat=simple, labelsep=colon}
+
+
+\renewcommand{\thechapter}{\Roman{chapter}} % I, II, III...
+
+
+\titleformat{\chapter}[display]
+  {\Large\bfseries\centering}
+  {}
+  {0pt}
+  {}
+
+
+
+
+\newcommand{\listappendixname}{Lista de Anexos}
+\newlistof{appendix}{loa}{\listappendixname}
+\renewcommand{\cftappendixpresnum}{Anexo~}  % Optional: Prefix entries with "Anexo"
+
+
+
+
+
+
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+\thispagestyle{empty}
+    \centering
+    \vspace*{1cm}
+
+    {\Large \textbf{UNIVERSIDAD NACIONAL DE INGENIERIA}}\\[1.25cm]
+
+    {\Large \textbf{Facultad de Ciencias}}\\[1.25cm]
+
+{\includegraphics[scale = 0.25]{Images/logo_UNI.png}} \\ 
+    \vspace{0.4cm}
+    
+	TESIS 
+	
+	\vspace{0.1in}
+    
+    { \Large \textbf{Materia oscura en el modelo $\nu_R-$331}}\\[0.5cm]
+%\chapter*{Anexos}
+	
+	Para obtener el Título Profesional de Licenciado en Física	\\
+
+	Elaborado por \\
+
+    Guillermo Gerardo Rivera Gambini \\ \orcid{0000-0002-9381-7049} ORCID: 0000-0002-9381-7049  \\
+    
+	Asesor  \\
+    
+    Dr. Oscar Eduardo Castillo Ruiz \\ \orcid{0000-0001-9713-6040} ORCID: 0000-0001-9713-6040  \\[1.0cm]
+
+
+    \vfill
+    \textbf{LIMA$-$PERÚ}\\
+    2025
+
+\end{titlepage}
+\setcounter{page}{2} % Fuerza a que la próxima página sea "ii"
+
+
+
+\noindent\rule{16cm}{0.6pt}
+\vspace{-0.4in}
+\setcolumnwidth{0.3\textwidth, 0.7\textwidth}
+\begin{paracol}{2}
+
+\switchcolumn* 
+\noindent Rivera Gambini [1]
+
+\noindent [1] \hspace{0.2in} G. Rivera Gambini, ``Materia oscura en el modelo \\ \indent $\nu_R-331$'' [Tesis de pregrado]. Lima (Perú): Universidad \\ \indent Nacional de Ingenieria, 2025.
+
+\switchcolumn
+
+\centering
+
+Citar/How to cite \\
+
+\vspace{-0.2in}
+\noindent\rule{4.5cm}{0.6pt}
+\vspace{-0.6in}
+\noindent Referencia/Reference
+
+
+\end{paracol}
+\vspace{-0.2in}
+\noindent\rule{16cm}{0.6pt}
+
+
+
+\vspace{1in}
+
+
+\noindent\rule{16cm}{0.6pt}
+\vspace{-0.4in}
+\setcolumnwidth{0.3\textwidth, 0.7\textwidth}
+\begin{paracol}{2}
+
+\switchcolumn* 
+\noindent (Rivera, 2025)
+
+\noindent Rivera, G. (2025), Materia oscura en el modelo $\nu_R-331$ \\ \indent [Tesis de pregrado, Universidad Nacional de \\ \indent Ingenieria]. Repositorio Institucional UNI.
+
+\switchcolumn
+
+\centering
+
+Citar/How to cite \\
+
+\vspace{-0.2in}
+\noindent\rule{4.5cm}{0.6pt}
+\vspace{-0.6in}
+\noindent Referencia/Reference
+
+\end{paracol}
+\vspace{-0.2in}
+\noindent\rule{16cm}{0.6pt}
+
+\newpage
+
+
+\chapter*{\hfill \textit{Dedicatoria}}
+
+\begin{flushright}
+\textit{Dedico este trabajo a mi mamá, a mi abuelo, a mi hermana y a mis hermanos, que siempre han estado ahí para apoyarme.}
+\end{flushright}
+
+
+\chapter*{Agradecimientos}
+En primer lugar, me gustaría agradecer a mi familia por su infinita paciencia y constante apoyo a mis proyectos.
+
+En seguida me gustaria agradecer a mi asesor el Dr. Oscar Eduardo Castillo Ruiz, al Dr. Orlando L. Pereyra Ravinez y al Dr. Rosendo Ochoa por su guía y tutoría después de tantos años de haber egresado de la UNI.
+
+Me gustaría agradecer a Jim Cline y a Farilando Queiroz a quienes les debo gran parte de lo que he aprendido a lo largo de estos años.  
+
+No podrían faltar los amigos que están presente dentro y fuera del mundo académico. Entre ellos tenemos a Fernanda de Faria Rodrigues, Gabriel Rabelo Soares, Lucia Angel, Armando Pezo, Dennis Zavaleta, Marvyn Inga, Fiorella Aquino, Lis Corbacho y Caroline Mouls.
+
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Resumen} % Añade a TOC sin número
+El modelo estándar de física de partículas, a pesar de su notable éxito, no logra dar cuenta de la existencia de materia oscura, un componente fundamental del presupuesto energético del universo. Los modelos $3-3-1$, basados en el grupo de gauge $SU(3)_C \times SU(3)_L \times U(1)_X$, proporcionan un marco convincente para abordar varias preguntas abiertas en física de partículas, incluida la naturaleza de la materia oscura. En esta tesis, exploramos la viabilidad de un candidato de materia oscura dentro del modelo $\nu_R-$331, una realización específica del marco $3-3-1$ que acomoda naturalmente un candidato de materia oscura estable WIMP. Específicamente, analizamos las restricciones fenomenológicas sobre la abundancia de reliquias de materia oscura resolviendo la ecuación de Boltzmann para diferentes canales de interacción entre la materia oscura y las partículas del modelo estándar. Nuestros resultados demuestran que un candidato viable de materia oscura puede surgir naturalmente dentro de este modelo, ofreciendo una alternativa atractiva a las extensiones convencionales del modelo estándar.
+
+\  \
+
+\noindent
+\textbf{Keywords:} materia oscura, modelo 331, WIMP, fenomenología
+
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Abstract} % Añade a TOC sin número
+%\addcontentsline{toc}{chapter}{Abstract}
+The standard model of particle physics, despite its remarkable success, fails to account for the existence of dark matter, a fundamental component of the universe's energy budget. The $3-3-1$ models, based on the gauge group 
+$SU(3)_C \times SU(3)_L \times U(1)_X$ , provide a compelling framework to address various open questions in particle physics, including the nature of dark matter. In this thesis, we explore the viability of a dark matter candidate within the $\nu_R-$331 model, a specific realization of the $3-3-1$ framework that naturally accommodates a stable WIMP dark matter candidate. Specifically, we analyze the phenomenological constraints on the dark matter relic abundance by solving the Boltzmann equation for different interaction channels between dark matter and standard model particles. Our results demonstrate that a viable dark matter candidate can naturally arise within this model, offering an attractive alternative to conventional extensions of the standard model.
+
+\  \ 
+
+\noindent
+\textbf{Keywords:} dark matter, 331 model, WIMP, phenomenology
+
+
+
+
+\clearpage
+\tableofcontents
+
+\clearpage
+\renewcommand{\listtablename}{\hspace{2.4in} \Large Lista de Tablas}
+\renewcommand{\thetable}{\Roman{table}} % I, II, III...
+\listoftables
+%%%%%\renewcommand{\tablename}{Tablaaaa}
+
+
+\clearpage
+\renewcommand{\listfigurename}{\hspace{2.4in} \Large Lista de Figuras}
+\renewcommand{\thefigure}{\Roman{figure}}
+\listoffigures
+
+
+\chapter*{Índice de acrónimos}
+\begin{center}
+%{\huge Índice de Acrónimos}\\[2cm]
+\end{center}
+\bigskip
+\begin{tabular}{ l c l }
+
+\textbf{ME} & & Modelo Estándar\\
+\textbf{LHC} & & Large Hadron Collider\\
+\textbf{LEP} & & Large Electron-Positron Collider\\
+\textbf{CERN} & & Conseil Européen pour la Recherche nucléaire\\
+\textbf{FCNC} & & Flavor Changing Neutral Current\\
+\textbf{SSB} & & Spontaneous Symmetry Breaking\\
+\textbf{WIMP} & & Weakly Interacting Massive Particle\\ 
+\textbf{DM} & & Dark Matter \\
+\textbf{NFW} & & Navarro-Frenk-White\\
+\textbf{H.E.S.S.} & & High Energy Stereoscopic System \\
+\textbf{CTA} & & Cherenkov Telescope Array \\
+\end{tabular}
+
+
+% MAINMATTER
+\mainmatter
+
+% ===============
+% C H A P T E R S 
+% ===============
+\chapter*{Introducción}
+\addcontentsline{toc}{chapter}{\protect\numberline{}Introducción} % Añade a TOC sin número
+\input{Chapters/1-introduction.tex}
+
+\chapter[\hspace{-0.185in}.  El Modelo Estándar]{I. El Modelo Estándar}
+\input{Chapters/2-SM.tex}
+
+\chapter[\hspace{-0.15in}.  Más allá del Modelo Estándar]{II. Más allá del Modelo Estándar}
+\input{Chapters/3-Beyond_SM.tex}
+
+\chapter[\hspace{-0.1in}.  Materia oscura tipo WIMP en el modelo $\nu_R$-331]{III. Materia oscura tipo WIMP en el modelo $\nu_R$-331}
+\input{Chapters/4-WIMP_DM_in_3-3-1.tex}
+
+\chapter[\hspace{-0.075in}.  Conclusiones]{IV. Conclusiones}
+\input{Chapters/5-conclusion.tex}
+
+\chapter[\hspace{-0.125in}.  Recomendaciones]{V. Recomendaciones}
+
+En este estudio se ha demostrado que la totalidad de la materia oscura del universo puede originarse a partir de un campo escalar que surge de manera natural en los modelos $3-3-1$. Se calculó la abundancia de reliquia asociada a dicho candidato y se verificó que, para ciertos valores de los parámetros del modelo, los resultados obtenidos son consistentes con las observaciones cosmológicas actuales. Como trabajo futuro, queda pendiente la exploración completa del espacio de parámetros. Para ello, se deberá implementar el modelo en herramientas como FeynRules \cite{FeynRules,FeynRulesManual} o LanHEP \cite{LanHEP,LanHEPManual}, y posteriormente utilizar micrOMEGAs \cite{micrOMEGAs,micrOMEGAs5} para realizar los cálculos de la densidad de reliquia.
+
+Otro posible desarrollo a partir de esta tesis es el estudio de la detección indirecta de materia oscura. En particular, se podría analizar la producción de rayos gamma resultantes de la aniquilación de partículas de materia oscura en regiones de alta densidad, como las galaxias enanas, y evaluar su compatibilidad con los datos observacionales de los experimentos H.E.S.S. y Fermi-LAT. Asimismo, sería relevante estimar proyecciones de límites provenientes de experimentos futuros como el CTA.
+
+
+
+\clearpage
+\phantomsection % ¡Importante! Define el punto de anclaje para el hipervínculo
+\addcontentsline{toc}{chapter}{VI. Referencias bibliográficas}
+\printbibliography[title={Referencias bibliográficas}]
+
+
+\clearpage
+\appendix
+\phantomsection % Asegura que el enlace del TOC funcione
+\addcontentsline{toc}{chapter}{\protect\numberline{}\hspace{-0.2in}Anexos} % Añade a TOC sin número
+
+
+% Desactiva la inclusión de figuras en la lista de figuras para los apéndices
+\captionsetup[figure]{list=no} 
+
+% Add this to create the List of Appendices
+\renewcommand{\listappendixname}{\hspace{2.4in} \Large Anexos}
+\listofappendix 
+
+
+\clearpage
+\chapter*{Anexo 1: Cosmología básica}
+\addcontentsline{loa}{appendix}{\protect\numberline{\thechapter}\hspace{0.2in} 1: Cosmología básica}
+\setcounter{page}{1}
+\input{Appendix/6-appendix.tex}
+
+
+
+%%%%%\addcontentsline{toc}{chapter}{Anexos}
+%%%%%\chapter{Cosmología básica}
+%%%%%\setcounter{page}{1}
+%%%%%\input{Appendix/6-appendix.tex}
+
+\chapter*{Anexo 2: Matrices de masa del $\nu_R-331$}
+\addcontentsline{loa}{appendix}{\protect\numberline{\thechapter}\hspace{0.2in} 2: Matrices de masa en el $\nu_R-331$}
+\input{Appendix/6-appendix_part_II.tex}
+
+\end{document}
+
