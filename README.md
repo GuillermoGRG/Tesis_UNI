@@ -14,10 +14,10 @@ Para compilar el archivo main.tex usar LuaLaTeX de la siguiente manera:
 ### lualatex main.tex
 ### lualatex main.tex
 
-### eliminar archivos auxiliares:
+### Eliminar archivos auxiliares:
 ### rm -f *.aux *.log *.out *.toc *.bbl *.blg
 
-### muestra el pdf:
+### Para ver el pdf (en Linux):
 ### evince main.pdf
 --------------------------------------------------------------------
 
