@@ -1,5 +1,5 @@
 # Tesis_UNI
-Template para la tesis de licenciatura estilo IEEE.
+Template para la tesis de licenciatura estilo IEEE (basado en la resolución rectoral RR_1439-2023)
 
 Para compilar el archivo main.tex usar LuaLaTeX de la siguiente manera:
 
